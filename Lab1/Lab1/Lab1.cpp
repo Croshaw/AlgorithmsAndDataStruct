@@ -2,22 +2,22 @@
 #include "WeatherReporter.h"
 #include "ArrayHelper.h"
 
-using namespace std;
-
-const int maxNumber = 150;
-const int minNumber = 10;
+const int maxNumber = 15;
+const int minNumber = 1;
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
-	srand(0);
-	cout << "Enter days count: ";
+	std::cout << "Enter days count: ";
 	int n;
-	cin >> n;
+	std::cin >> n;
 	ArrayHelper helper(n, minNumber, maxNumber);
-	helper.printArray();
+	//helper.printArray();
 	WeatherReporter reporter;
-	cout << "Общее кол-во осадков в чётные дни: " << reporter.getSumEven(helper.getArray(), helper.getSize()) << endl;
-	cout << "Кол-во итераций: " << reporter.getIterations() << "\tКол-во итераций присваивания: " << reporter.getNeedIterations() << endl;
+	std::cout << "Общее кол-во осадков в чётные дни: " << reporter.getSumEven(helper.getArray(), helper.getSize()) << std::endl;
+	std::cout << "Кол-во итераций: " << reporter.getIterations() << "\tКол-во итераций присваивания: " << reporter.getNeedIterations() << std::endl;
+	printf("Время выполнения: %.2f сек.\n\n", reporter.getTime());
+	std::cout << "Общее кол-во осадков в чётные дни: " << reporter.getSumEvenAnother(helper.getArray(), helper.getSize()) << std::endl;
+	std::cout << "Кол-во итераций: " << reporter.getIterations() << "\tКол-во итераций присваивания: " << reporter.getNeedIterations() << std::endl;
 	printf("Время выполнения: %.2f сек.\n", reporter.getTime());
 }

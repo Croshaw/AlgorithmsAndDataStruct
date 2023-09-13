@@ -1,7 +1,6 @@
 #pragma once
 #include <stdlib.h>
 #include <iostream>
-using namespace std;
 class ArrayHelper
 {
 private:
@@ -11,10 +10,12 @@ private:
 	int* array;
 	bool isFill;
 	void fillArray() {
+		srand(0);
 		if (size <= 0)
 			return;
 		for (int i = 0; i < size; i++)
 			array[i] = rand() % (maxNumber - minNumber) + minNumber;
+		isFill = true;
 	}
 public:
 	ArrayHelper(int size, int minNumber, int maxNumber)
@@ -23,7 +24,7 @@ public:
 		this->maxNumber = maxNumber;
 		this->minNumber = minNumber;
 		this->array = new int[size];
-		isFill = false;
+		fillArray();
 	}
 
 	int* getArray() {
@@ -33,10 +34,10 @@ public:
 	}
 	void printArray() {
 		int* arr = getArray();
-		cout << "Array[" << size << "] { ";
+		std::cout << "Array[" << size << "] { ";
 		for (int i = 0; i < size; i++)
-			cout << arr[i] << (i == size - 1 ? "" : ", ");
-		cout << " }" << endl;
+			std::cout << arr[i] << (i == size - 1 ? "" : ", ");
+		std::cout << " }" << std::endl;
 	}
 	int getSize() {
 		return size;
