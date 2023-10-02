@@ -1,56 +1,39 @@
-#include<ctime>
+#include <chrono>
 #pragma once
 class WeatherReporter
 {
 private:
-	int iterations = 0;
-	int needIterations = 0;
-	double time;
+	long duration;
 public:
 	long getSumEven(int* array, int size) {
-		clock_t start = clock();
+		auto start = std::chrono::high_resolution_clock::now();
 		long sum = 0;
-		needIterations = 0;
 		for (int i = 0; i < size; i++)
-		{
-			if ((i + 1) % 2 == 0) {
-				needIterations++;
+			if ((i + 1) % 2 == 0)
 				sum += array[i];
-			}
-		}
-		iterations = size;
-		time = (double(clock() - start)) / CLOCKS_PER_SEC;
+		auto stop = std::chrono::high_resolution_clock::now();
+		duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start).count();
 		return sum;
 	}
 	long getSumEvenAnother(int* array, int size) {
-		clock_t start = clock();
+		auto start = std::chrono::high_resolution_clock::now();
 		long sum = 0;
-		iterations = 0;
-		needIterations = 0;
 		int mid = size / 2;
 		for (int i = 0; i < mid; i++)
 		{
 			if ((i + 1) % 2 == 0) {
-				needIterations++;
 				sum += array[i];
 			}
 			if ((mid+i+1) % 2 == 0) {
-				needIterations++;
 				sum += array[mid+i];
 			}
-			iterations++;
 		}
-		time = (double(clock() - start)) / CLOCKS_PER_SEC;
+		auto stop = std::chrono::high_resolution_clock::now();
+		duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start).count();
 		return sum;
 	}
-	int getIterations() {
-		return iterations;
-	}
-	int getNeedIterations() {
-		return needIterations;
-	}
-	double getTime() {
-		return time;
+	long getExecuteTime() {
+		return duration;
 	}
 };
 

@@ -1,2 +1,12 @@
 ﻿  Lab1.cpp
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\Lab1\Lab1\WeatherReporter.h(15,87): warning C4244: =: преобразование "_Rep" в "long", возможна потеря данных
+          with
+          [
+              _Rep=__int64
+          ]
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\Lab1\Lab1\WeatherReporter.h(32,87): warning C4244: =: преобразование "_Rep" в "long", возможна потеря данных
+          with
+          [
+              _Rep=__int64
+          ]
   Lab1.vcxproj -> E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\Lab1\x64\Debug\Lab1.exe

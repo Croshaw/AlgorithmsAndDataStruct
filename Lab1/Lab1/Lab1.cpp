@@ -15,9 +15,7 @@ int main()
 	//helper.printArray();
 	WeatherReporter reporter;
 	std::cout << "Общее кол-во осадков в чётные дни: " << reporter.getSumEven(helper.getArray(), helper.getSize()) << std::endl;
-	std::cout << "Кол-во итераций: " << reporter.getIterations() << "\tКол-во итераций присваивания: " << reporter.getNeedIterations() << std::endl;
-	printf("Время выполнения: %.2f сек.\n\n", reporter.getTime());
+	printf("Время выполнения: %i мкс.\n\n", reporter.getExecuteTime());
 	std::cout << "Общее кол-во осадков в чётные дни: " << reporter.getSumEvenAnother(helper.getArray(), helper.getSize()) << std::endl;
-	std::cout << "Кол-во итераций: " << reporter.getIterations() << "\tКол-во итераций присваивания: " << reporter.getNeedIterations() << std::endl;
-	printf("Время выполнения: %.2f сек.\n", reporter.getTime());
+	printf("Время выполнения: %i мкс.\n", reporter.getExecuteTime());
 }
