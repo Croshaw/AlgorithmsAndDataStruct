@@ -1,37 +1,37 @@
 ﻿  Main.cpp
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(68,17): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(70,17): warning C4244: -=: преобразование "double" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(241,22): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(264,24): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(266,28): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(354,23): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(18,67): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(199,23): warning C4244: аргумент: преобразование "float" в "unsigned int", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(221,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(223,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(234,39): warning C4244: аргумент: преобразование "double" в "unsigned int", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(254,39): warning C4244: аргумент: преобразование "double" в "unsigned int", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\RBTree.h(473,23): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(21,67): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(18,26): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(21,26): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(19,72): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(22,72): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(19,27): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(22,27): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(31,21): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(111,33): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(34,21): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(115,33): warning C4244: =: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float
           ]
-E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(112,33): warning C4244: =: преобразование "int" в "T", возможна потеря данных
+E:\Important\Projects\C++\Учёба\AlgorithmsAndDataStruct\RedAndBlackBinTree\RedAndBlackBinTree\Main.cpp(116,33): warning C4244: =: преобразование "int" в "T", возможна потеря данных
           with
           [
               T=float

@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <SFML/Graphics.hpp>
 #include "RBTree.h"
 #include <thread>
@@ -9,6 +11,7 @@ using namespace sf;
 #define windowH 720
 
 RBTree bst;
+Mutex mutex;
 void drawArrow(sf::RenderWindow& window, sf::Vector2f end, sf::Vector2f naprav, sf::Color color)
 {
 	const double cos1 = 0.866;
@@ -86,12 +89,13 @@ void drawTree(sf::RenderWindow& window, Node* root, float x, float y, float xSpa
 void windowRendering() {
 	ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	RenderWindow window(VideoMode(windowW, windowH), "Test", Style::Default, settings);
+	RenderWindow window(VideoMode(windowW, windowH), "RBTree", Style::Close, settings);
 	bst.setStartPosition(windowW / 2, 15);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(240);
 	Font font;
 	font.loadFromFile("arial.ttf");
 	bst.setFont(font);
+	bst.setDrawNullLeaves(true);
 	bool isClick = false;
 	Vector2f lastPos(-1, -1);
 	Clock doubleClickClock;
@@ -126,7 +130,6 @@ void windowRendering() {
 				float d = event.mouseWheelScroll.delta;
 				if ((int)d == d) {
 					d *= Keyboard::isKeyPressed(Keyboard::LShift) ? 5 : 1;
-					std::cout << d << std::endl;
 					bst.mouseScroll(d);
 				}
 			}
@@ -135,7 +138,6 @@ void windowRendering() {
 		window.clear(Color::White);
 
 		bst.drawTo(window);
-
 		window.display();
 	}
 }
@@ -145,24 +147,51 @@ void consoleHandler() {
 	int i=-1;
 	while (true) {
 		system("cls");
-		std::cout << "[1] - Добавить\n[2] - Удалить\n\n[0] - Завершить работу\n";
+		std::cout << "[1] - Добавить\n[2] - Удалить\n[3] - Добавить случайные элементы\n\n[4] - Отображение нулевых листьев\n\n\n[0] - Завершить работу\n";
 		if (std::cin >> i) {
 			system("cls");
 			if (i == 0) {
 				exit(0);
 			}
-			else if (i == 1) {
+			else if (i == 1 || i == 2) {
+				int b;
 				std::cout << "Введите число: ";
-				if (std::cin >> i)
-					bst.insert(i);
+				if (std::cin >> b)
+				{
+					mutex.lock();
+					if (i == 1)
+						bst.insert(b);
+					else {
+						try {
+							bst.remove(b);
+						}
+						catch (...) {
+							std::cout << "Нет ноды с таким значением" << std::endl;
+							std::cin >> b;
+						}
+					}
+					mutex.unlock();
+				}
 				else {
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					bool validData = false;
 					while (!validData) {
 						std::cout << "Введите корректное число: ";
-						if (std::cin >> i) {
-							bst.insert(i);
+						if (std::cin >> b) {
+							mutex.lock();
+							if (i == 1)
+								bst.insert(b);
+							else {
+								try {
+									bst.remove(b);
+								}
+								catch (...) {
+									std::cout << "Нет ноды с таким значением" << std::endl;
+									std::cin >> b;
+								}
+							}
+							mutex.unlock();
 							validData = true;
 						}
 						else {
@@ -171,6 +200,41 @@ void consoleHandler() {
 						}
 					}
 				}
+			}
+			else if (i == 3) {
+				int b;
+				int min, max;
+				std::cout << "Введите число элементов для добавления: ";
+				if (std::cin >> b) {
+					std::cout << "Введите диапазон чисел: ";
+					std::scanf("%i %i", &min, &max);
+					srand(0);
+					for (int i = 0; i < b; i++) {
+						std::cout << "Осталось " << b - i << " элементов" << std::endl;
+						mutex.lock();
+						bst.insert(rand() % (max - min) + min);
+						mutex.unlock();
+						if (bst.curWaitNode != nullptr) {
+							while (!bst.curWaitNode->isRightPlace()) {
+
+							}
+							bst.curWaitNode = nullptr;
+						}
+					}
+				}
+				else {
+					std::cin.clear();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				}
+			}
+			else if (i == 4) {
+				std::cout << "[1] - Включить\n[2] - Выключить\n\n[*] - Назад" << std::endl;
+				char ch;
+				std::cin >> ch;
+				if (ch == '1')
+					bst.setDrawNullLeaves(true);
+				else if (ch == '2')
+					bst.setDrawNullLeaves(false);
 			}
 		}
 		else {
@@ -182,9 +246,10 @@ void consoleHandler() {
 
 int main()
 {
-	std::thread windowThread(windowRendering);
-	std::thread consoleThread(consoleHandler);
+	Thread windowThread(&windowRendering);
 
-	windowThread.join();
-	consoleThread.join();
+	windowThread.launch();
+
+	consoleHandler();
+
 }
